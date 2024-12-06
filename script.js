@@ -5,17 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultContainer = document.getElementById('result');
     const whatsappLinkInput = document.getElementById('whatsapp-link');
     const copyLinkButton = document.getElementById('copy-link');
-    const openWhatsappButton = document.getElementById('open-whatsapp');
     const downloadQrButton = document.getElementById('download-qr');
     const phoneError = document.getElementById('phone-error');
     let qrcode = null;
 
     // Phone number validation
     function validatePhone(phone) {
-        // Remove any non-digit characters
         const cleanPhone = phone.replace(/\D/g, '');
-        
-        // Check if starts with valid Israeli prefix
         const validPrefixes = ['050', '051', '052', '053', '054', '055', '058'];
         const prefix = cleanPhone.substring(0, 3);
         
@@ -33,17 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate WhatsApp link
     function generateWhatsappLink(phone, message) {
         const encodedMessage = encodeURIComponent(message);
-        return `https://wa.me/972${phone.substring(1)}?text=${encodedMessage}`;
+        return `wa.me/972${phone.substring(1)}?text=${encodedMessage}`;
     }
 
     // Generate QR Code
     function generateQRCode(url) {
         const qrcodeContainer = document.getElementById('qrcode');
-        // נקה את הקונטיינר לפני יצירת קוד חדש
         qrcodeContainer.innerHTML = '';
         
-        // צור את קוד ה-QR
-        new QRCode(qrcodeContainer, {
+        qrcode = new QRCode(qrcodeContainer, {
             text: url,
             width: 256,
             height: 256,
@@ -81,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     copyLinkButton.addEventListener('click', async () => {
         try {
-            await navigator.clipboard.writeText(whatsappLinkInput.value);
+            const fullLink = whatsappLinkInput.value;
+            await navigator.clipboard.writeText(fullLink);
             copyLinkButton.textContent = 'הועתק!';
             setTimeout(() => {
                 copyLinkButton.textContent = 'העתק קישור';
@@ -89,10 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
             console.error('Failed to copy text: ', err);
         }
-    });
-
-    openWhatsappButton.addEventListener('click', () => {
-        window.open(whatsappLinkInput.value, '_blank');
     });
 
     downloadQrButton.addEventListener('click', () => {
