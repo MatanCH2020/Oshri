@@ -24,32 +24,49 @@
             <div class="form-container">
                 <div class="input-group">
                     <label for="phone">מספר טלפון:</label>
-                    <input type="tel" id="phone" placeholder="הכנס מספר טלפון" dir="ltr">
+                    <input type="tel" id="phone" value="0545881913" placeholder="הכנס מספר טלפון" dir="ltr">
                     <span class="error" id="phone-error"></span>
                 </div>
 
                 <div class="input-group">
                     <label for="message">הודעה:</label>
-                    <textarea id="message" rows="4">שלום, אני מתעניין ברכבי היוקרה שלכם. נא לחזור אליי בהקדם.</textarea>
+                    <textarea id="message" rows="4">שלום, אני מתעניין ברכבי היוקרה שלכם. אשמח לקבל פרטים נוספים. תודה!</textarea>
                 </div>
 
-                <button id="generate-link" class="primary-button">צור קישור לוואטסאפ</button>
+                <button id="generate-link" class="primary-button">צור קישור ל-WhatsApp</button>
 
                 <div id="result" class="result-container" style="display: none;">
                     <div class="link-container">
-                        <input type="text" id="whatsapp-link" readonly>
-                        <button id="copy-link" class="secondary-button">העתק קישור</button>
-                        <button id="open-whatsapp" class="secondary-button">פתח בוואטסאפ</button>
+                        <div class="copy-link-container">
+                            <input type="text" id="whatsapp-link" readonly>
+                            <button id="copy-link" class="secondary-button">העתק קישור</button>
+                        </div>
+                    </div>
+
+                    <div class="guide-container">
+                        <h3>רוצה לקצר את הקישור?</h3>
+                        <ol class="guide-steps">
+                            <li>היכנס ל- <a href="https://bit.ly" target="_blank">bit.ly</a></li>
+                            <li>העתק את הקישור שנוצר למעלה</li>
+                            <li>הדבק את הקישור בתיבת הטקסט ב-bit.ly</li>
+                            <li>לחץ על "Shorten" לקבלת קישור קצר</li>
+                        </ol>
                     </div>
 
                     <div class="qr-container">
-                        <h3>סרוק את הקוד כדי לפתוח בוואטסאפ</h3>
+                        <h3>סרוק את הקוד כדי לפתוח WhatsApp</h3>
                         <div id="qrcode"></div>
                         <button id="download-qr" class="secondary-button">הורד את קוד ה-QR</button>
                     </div>
                 </div>
             </div>
         </main>
+
+        <footer>
+            <p> <footer>
+                <p>© 2024 פותח על ידי מתן כלף | כל הזכויות שמורות</p>
+
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
