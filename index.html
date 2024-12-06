@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אושרי רכבי יוקרה</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="50" height="50" viewBox="0 0 50 50">
+                    <path d="M25,2 L2,25 L25,48 L48,25 L25,2z" fill="#25D366"/>
+                    <circle cx="25" cy="25" r="15" fill="#075E54"/>
+                    <text x="25" y="30" text-anchor="middle" fill="#25D366" font-size="12">O</text>
+                </svg>
+            </div>
+            <h1>אושרי רכבי יוקרה</h1>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <div class="input-group">
+                    <label for="phone">מספר טלפון:</label>
+                    <input type="tel" id="phone" placeholder="הכנס מספר טלפון" dir="ltr">
+                    <span class="error" id="phone-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">הודעה:</label>
+                    <textarea id="message" rows="4">שלום, אני מתעניין ברכבי היוקרה שלכם. נא לחזור אליי בהקדם.</textarea>
+                </div>
+
+                <button id="generate-link" class="primary-button">צור קישור לוואטסאפ</button>
+
+                <div id="result" class="result-container" style="display: none;">
+                    <div class="link-container">
+                        <input type="text" id="whatsapp-link" readonly>
+                        <button id="copy-link" class="secondary-button">העתק קישור</button>
+                        <button id="open-whatsapp" class="secondary-button">פתח בוואטסאפ</button>
+                    </div>
+
+                    <div class="qr-container">
+                        <h3>סרוק את הקוד כדי לפתוח בוואטסאפ</h3>
+                        <div id="qrcode"></div>
+                        <button id="download-qr" class="secondary-button">הורד את קוד ה-QR</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
